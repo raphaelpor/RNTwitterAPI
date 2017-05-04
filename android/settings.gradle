@@ -1,0 +1,3 @@
+rootProject.name = 'RNTwitterAPI'
+
+include ':app'
