@@ -1,44 +1,22 @@
 // @flow
 
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import React from 'react';
+import { Router, Scene } from 'react-native-router-flux';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+import Feed from './Feed';
+import Header from './Header';
 
 const RNTwitterAPI = () => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>
-      Welcome to React Native!
-    </Text>
-    <Text style={styles.instructions}>
-      To get started, edit index.android.js
-    </Text>
-    <Text style={styles.instructions}>
-      Double tap R on your keyboard to reload,{'\n'}
-      Shake or press menu button for dev menu
-    </Text>
-  </View>
+  <Router>
+    <Scene key="root">
+      <Scene
+        key="Feed"
+        renderTitle={() => <Header />}
+        component={Feed}
+        initial={true}
+      />
+    </Scene>
+  </Router>
 );
 
 export default RNTwitterAPI;
